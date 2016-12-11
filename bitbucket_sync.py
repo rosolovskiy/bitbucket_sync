@@ -1,4 +1,5 @@
 __author__ = 'Alexey Rosolovskiy'
+__version__ = '0.0.1'
 
 import sys
 import argparse
@@ -128,6 +129,7 @@ class Auth(object):
         if self.auth_token_expires_at + self._token_reset_threshold <= now:
             self.auth_token = None
             self.auth_token_expires_at = 0
+            # TODO: refresh token here, now just request another one
             return True
         else:
             return False
